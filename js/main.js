@@ -1,1 +1,1 @@
-console.log("ORT - Tecnología e Innovación");
+console.log("ORT | Tecnología e Innovación – Sitio activo");

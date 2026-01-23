@@ -1,3 +1,4 @@
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
@@ -5,9 +6,19 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ===== VARIABLES ===== */
+:root {
+    --primary: #0a1f44;
+    --secondary: #1f8ef1;
+    --accent: #d4af37;
+    --bg-light: #f4f6f9;
+    --text-dark: #1a1a1a;
+}
+
+/* ===== GENERAL ===== */
 body {
-    background: #f4f6f9;
-    color: #1a1a1a;
+    background: var(--bg-light);
+    color: var(--text-dark);
 }
 
 .container {
@@ -16,36 +27,40 @@ body {
     margin: auto;
 }
 
+/* ===== HEADER ===== */
 .header {
-    background: #0a1f44;
+    background: var(--primary);
     color: white;
-    padding: 20px 0;
+    padding: 30px 0;
 }
 
 .header h1 {
     font-size: 42px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 .subtitle {
-    color: #d4af37;
-    font-size: 16px;
-    margin-bottom: 10px;
+    color: var(--accent);
+    font-size: 15px;
+    margin-bottom: 12px;
 }
 
+/* ===== NAV ===== */
 nav a {
     color: white;
-    margin-right: 15px;
+    margin-right: 18px;
     text-decoration: none;
     font-size: 14px;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: var(--secondary);
 }
 
+/* ===== SECTIONS ===== */
 .section {
-    padding: 60px 0;
+    padding: 70px 0;
 }
 
 .hero {
@@ -53,32 +68,87 @@ nav a:hover {
     text-align: center;
 }
 
-.hero h2 {
-    font-size: 32px;
-    margin-bottom: 15px;
+.section h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
 }
 
+/* ===== SERVICES ===== */
 .services {
     list-style: none;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .services li {
     background: white;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-left: 5px solid #0a1f44;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-left: 5px solid var(--primary);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideUp 0.8s ease-out forwards;
 }
 
+.services li:nth-child(1) { animation-delay: 0.2s; }
+.services li:nth-child(2) { animation-delay: 0.4s; }
+.services li:nth-child(3) { animation-delay: 0.6s; }
+.services li:nth-child(4) { animation-delay: 0.8s; }
+.services li:nth-child(5) { animation-delay: 1s; }
+.services li:nth-child(6) { animation-delay: 1.2s; }
+
+/* ===== DARK SECTION ===== */
 .dark {
-    background: #0a1f44;
+    background: var(--primary);
     color: white;
 }
 
+/* ===== FOOTER ===== */
 .footer {
     background: #111;
     color: #aaa;
     text-align: center;
     padding: 20px 0;
     font-size: 14px;
+}
+
+/* ===== ANIMACIONES FUTURISTAS ===== */
+
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 0 rgba(31, 142, 241, 0);
+    }
+    to {
+        text-shadow: 0 0 14px rgba(31, 142, 241, 0.6);
+    }
+}
+
+.animate-title {
+    opacity: 0;
+    animation: fadeSlideUp 1s ease-out forwards;
+}
+
+/* ===== DELAYS ===== */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+/* ===== HOVER FUTURISTA ===== */
+h1, h2 {
+    transition: all 0.3s ease;
+}
+
+h1:hover, h2:hover {
+    letter-spacing: 2px;
+    animation: glow 0.4s ease-in forwards;
 }
